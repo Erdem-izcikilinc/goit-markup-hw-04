@@ -81,24 +81,23 @@ img {
     color: #2e2f42;
     text-decoration: none;
     padding: 24px 0;
+    position: relative;
 }
 
 .nav-link:hover {
     color: #404bbf;
     content: '';
     left: 0;
-    bottom: -15px;
     height: 2px;
-    
 }
 
-.nav-link:after {
+.nav-link:active::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: 20px;
     height: 2px;
-    width: 2px;
+    width: 100%;
     background-color: #404bbf;
 }
 
@@ -322,7 +321,7 @@ img {
     margin-bottom: 72px;
 }
 
-.portfolio-section .portfolio-ul {
+.portfolio-ul {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
@@ -332,7 +331,31 @@ img {
 
 .portfolio-li {
     flex-basis: calc((100% - 3 * 24px) / 4);
+    position: relative;
+    cursor: pointer;
 }
+
+.portfolio-li:hover .portfolio-transition {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-transition {
+    padding: 8px;
+    background-color: #3f51b5;
+    color: #fff;
+    font-family: sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 360px;
+    height: 300px;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
 .portfolio-section .h3 {
     color: #2e2f42;
@@ -358,7 +381,7 @@ img {
     background-color: #2e2f42;
     height: 312px;
     top: 2988px;
-    display
+    display: flex;
 }
 
 .footer-logo {
@@ -407,4 +430,14 @@ footer .footer-p {
     height: 40px;
     gap: 16px;
     margin-right: 16px;
+    position: relative;
+
+}
+
+.path-fill {
+    transition: fill 0.3s ease-in-out;
+}
+
+.icon-3:hover{
+    --color1: #31D0AA;
 }
